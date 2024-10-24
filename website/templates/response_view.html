@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<div
+  class="flex-column d-flex align-items-center justify-content-center"
+  style="height: 500px"
+>
+  <h1>What is your question?</h1>
+  <form class="form-group form-group-lg" method="GET">
+    <input
+      class="form-control"
+      type="search"
+      name="query"
+      placeholder="Enter Here"
+      aria-label="Search"
+    />
+  </form>
+</div>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-lg-12">
+      <div class="chat">
+        <div class="chat-header clearfix"></div>
+        <div class="chat-history">
+          <ul class="m-b-0">
+            {% for result in results %}
+            <li class="clearfix">
+              <div class="message {{ result.messagetype }}">
+                {{ result.message }}
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
